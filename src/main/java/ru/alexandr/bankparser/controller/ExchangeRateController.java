@@ -35,7 +35,7 @@ public class ExchangeRateController {
     @PostMapping("/sync/period")
     public ResponseEntity<String> syncForPeriod(@RequestBody ExchangeRateReportRequest request) {
         log.info("Синхронизация начата для периода с {} по {} и для валют : {}", request.getStartDate(), request.getEndDate(), request.getCurrencies());
-        syncService.syncRatesForPeriod(request.getStartDate(), request.getEndDate(), request.getCurrencies());
+        syncService.syncRatesForPeriod(request.getStartDate(), request.getEndDate());
         log.info("Синхронизация завершена");
         return ResponseEntity.ok("Синхронизация за период " + request.getStartDate() + " - " + request.getEndDate() + " завершена");
     }
